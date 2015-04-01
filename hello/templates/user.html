@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>gd_chat</title>
+    <head>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}main.css">
+
+
+<script src="{{ STATIC_URL }}jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}main.js"></script>
+
+
+</head>
+
+<body onload="callAjax2()">
+<div id="container">
+     <div id="header">
+        <table><tr><td>
+        <div id="home"><a href="/"><img src="{{ STATIC_URL }}gfx/home.png" alt="Online Icon" style="width:30px;height:30px"></a></div></td>
+            <td><div id="username">{{ cur_user.first_name }}</div></td>
+        <td><div id="logout"><a href="/logout">Logout</a></div></td></tr></table>
+    </div>
+    <div id="left">
+            {% block content %}
+ {{ user }}
+<h3>Note: If user is offline, we will also notify him/her via email.</h3>
+<a href="/users/get/{{ user.id }}/upload" target="framename">Send Image</a>
+
+
+
+    </div>
+    <div id="right">
+
+        <div id="switch">
+            <ul id="chat_result2">
+
+            </ul>
+
+
+        </div>
+
+    </div>
+                <div id="footer">
+                <br>
+                   <textarea type="text" name="sent_msg" id="sent_msg" rows="2" cols="50"></textarea><input type="button" value="Send" onclick="send_data()">
+                <br>
+                </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+</body>
+</html>
